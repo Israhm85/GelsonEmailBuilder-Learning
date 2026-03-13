@@ -1,3 +1,32 @@
 <script>
-  
+window.addEventListener('load', () => {
+  const btn = document.getElementById('btnTest');
+
+  btn.addEventListener('click', () => {
+    const storeEl = document.getElementById('storeName');
+    const dateEl = document.getElementById('deliveryDate');
+    const sigEl = document.getElementById('signature');
+
+    const storeClean = storeEl.value.trim();
+    const dateVal = dateEl.value;
+    const sigClean = sigEl.value.trim();
+
+    // pinta/quita rojo
+    storeEl.classList.toggle('field-error', storeClean === '');
+    dateEl.classList.toggle('field-error', dateVal === '');
+    sigEl.classList.toggle('field-error', sigClean === '');
+
+    // preview con fallback
+    const storeName = storeClean || '(missing)';
+    const deliveryDate = dateVal || '(missing)';
+    const signature = sigClean || '(missing)';
+
+    document.getElementById('emailPreview').textContent =
+`Store: ${storeName}
+Delivery Date: ${deliveryDate}
+
+Signature:
+${signature}`;
+  });
+});
 </script>
