@@ -3,7 +3,7 @@ const t= HtmlService.createTemplateFromFile('index');
 return t.evaluate().setTitle("Gelson's Email Builder");
 }
 
-function(name){
+function include(filename){
 return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
 
